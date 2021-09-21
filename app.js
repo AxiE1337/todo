@@ -2,6 +2,7 @@
 const todoAddBtn = document.querySelector('#todo-add-btn')
 const todoInput = document.querySelector('#todo-input')
 const todoList = document.querySelector('.todo-list')
+const form = document.querySelector('#form')
 
 getTodoLocal ()
 
@@ -10,12 +11,14 @@ todoList.addEventListener('click', removeLi)
 
 function todoAdd (event) {
     event.preventDefault()
+
+    maxCapacity ()
     
     if (todoInput.value.length < 1) {
         todoAddBtn.style.backgroundColor = 'red'
         todoInput.disabled = isdesabled
     } else todoAddBtn.style.backgroundColor = ''
-
+   
     const todoDiv = document.createElement('div')
     todoDiv.classList.add('todo-div')
 
@@ -34,6 +37,18 @@ function todoAdd (event) {
     saveTodoLocal (todoInput.value)
 
     todoInput.value = ''
+}
+
+function maxCapacity () {
+    if (JSON.parse(localStorage.getItem('todos')).length > 7 ) {
+        form.classList.add('max')
+        todoAddBtn.style.backgroundColor = 'red'
+        todoInput.value = ''
+        
+    } else {
+        form.classList.remove('max')
+        todoAddBtn.style.backgroundColor = 'red'
+    }    
 }
 
 function saveTodoLocal (todo) {
@@ -88,7 +103,10 @@ function removeLi (event) {
     const item = event.target
     if (item.classList[0] === 'delete-button') {
         const todo = item.parentElement
-        removeTodoLocal (todo)
-        todo.remove()
+        setTimeout ( () => {
+            removeTodoLocal (todo)
+            todo.remove()
+        }, 500)    
+        todo.classList.add('del')
     }
 }
