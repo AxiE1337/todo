@@ -10,6 +10,11 @@ todoList.addEventListener('click', removeLi)
 
 function todoAdd (event) {
     event.preventDefault()
+    
+    if (todoInput.value.length < 1) {
+        todoAddBtn.style.backgroundColor = 'red'
+        todoInput.disabled = isdesabled
+    } else todoAddBtn.style.backgroundColor = ''
 
     const todoDiv = document.createElement('div')
     todoDiv.classList.add('todo-div')
