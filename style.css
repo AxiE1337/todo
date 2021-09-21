@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #159957, #155799);
+    font-family: 'Poppins', sans-serif;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container form {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    min-width: 30%;
+}
+
+.todo-container form button {
+    border: none;
+    padding: 0px 10px;
+}
+
+.todo-container form input {
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-div {
+    height: 100%;
+    width: 100%;
+    min-width: 70vw;
+    margin: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.todo-div .todo-li {
+    height: 100%;
+    padding: 0% 5%;
+    display: flex;
+    font-size: 20px;
+}
+
+.todo-div .delete-button {
+    padding: 5%;
+    display: flex;
+    border: none;
+}
+
+
+
