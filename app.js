@@ -11,8 +11,6 @@ todoList.addEventListener('click', removeLi)
 
 function todoAdd (event) {
     event.preventDefault()
-
-    maxCapacity ()
     
     if (todoInput.value.length < 1) {
         todoAddBtn.style.backgroundColor = 'red'
@@ -35,6 +33,7 @@ function todoAdd (event) {
     todoList.appendChild(todoDiv)
 
     saveTodoLocal (todoInput.value)
+    maxCapacity ()
 
     todoInput.value = ''
 }
